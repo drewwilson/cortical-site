@@ -785,3 +785,52 @@ body {
   flex-direction: row;
   gap: 60px;
 }
+
+/* --- Animal Testing */
+
+.section-animal {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 240px 120px;
+  background: transparent url('images/animal-bg.jpg') no-repeat bottom center;
+  background-size: cover;
+}
+
+.section-animal-title {
+  font-size: 200px;
+  line-height: 200px;
+  font-weight: 700;
+}
+
+
+/* --- Deeper Learning */
+
+.section-deeper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 0 40px;
+  margin-top: -100px;
+}
+
+.section-deeper-title {
+  font-size: 200px;
+  line-height: 200px;
+  font-weight: 500;
+  color: var(--color-canary);
+}
+
+.section-deeper-body {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+  padding: 200px 160px;
+  border-radius: 20px;
+  background: transparent url('images/deeper-pattern-bg.jpg') repeat-x top center;
+  background-size: contain;
+}
+
+.section-deeper-body p {
+  color: #ffffff;
+}
