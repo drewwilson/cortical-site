@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Cortical</title>
+	<title>Cortical - CL1</title>
 	<meta charset="utf-8">
 	<link href="style.css" rel="stylesheet" type="text/css">
-	<link rel="SHORTCUT ICON" href="/images/favicon.ico">
+	<link rel="SHORTCUT ICON" href="images/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=1">
 
-	<meta property="og:title" content="Cortical Labs" />
-	<meta property="og:description" content="" />
+	<meta property="og:title" content="Cortical Labs - CL1" />
+	<meta property="og:description" content="The world's first code deployable biological computer. Test how lab-grown human neurons process information and learn." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://corticallabs.com" />
-	<meta property="og:image" content="http://corticallabs.com/images/c-share.jpg" />
+	<meta property="og:url" content="https://corticallabs.com/cl1.html" />
+	<meta property="og:image" content="https://corticallabs.com/images/c-share.jpg" />
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:site" content="@corticallabs">
+
+  <meta name="description" content="The world's first code deployable biological computer. Test how lab-grown human neurons process information and learn.">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="author" content="Cortical Labs P/L">
 </head>
 	<body>
 		
@@ -48,11 +56,24 @@
           <a href="/cl1.html" class="selected">CL1</a>
           <a href="/cloud.html">Cloud</a>
           <a href="/research.html">Research</a>
-          <a href="/about.html">Company</a>
+          <a href="/company.html">Company</a>
         </nav>
       </div>
       <div class="header-right">
-        <a href="" class="button small">Get Started</a>
+        <a href="https://cloud.corticallabs.com" class="button small">Get Started</a>
+        <div class="header-hamburger">
+          <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="22" height="2" rx="1" fill="currentColor"/>
+            <rect y="8" width="22" height="2" rx="1" fill="currentColor"/>
+            <rect y="16" width="22" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="header-x">
+          <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3.92969" y="0.514648" width="22" height="2" rx="1" transform="rotate(45 3.92969 0.514648)" fill="currentColor"/>
+            <rect width="22" height="2" rx="1" transform="matrix(-0.707107 0.707107 0.707107 0.707107 18.0703 0.514648)" fill="currentColor"/>
+          </svg>
+        </div>
       </div>
     </header>
 
@@ -63,59 +84,62 @@
           <strong>CL1</strong>
           <span>The world’s first code deployable biological computer.</span>
         </h1>
-        <a href="" class="button">Buy Now</a>
+        <a href="/purchase.html" class="button">Buy Now</a>
       </div>
       <div class="hero-cl1-flare"></div>
     </section>
 
-    <section class="cl1-experience">
+    <section class="cl1-experience" id="specialSection">
       <div class="cl1-experience-bg"></div>
-      <div class="cl1-experience-slide s-1">
-        <h3>
-          Silicon meets neuron
-        </h3>
-        <p>
-          Human neurons are cultivated inside a nutrient rich solution, supplying them with everything they need to be healthy. They grow across a silicon chip, which sends and receives electrical impulses into the neural structure.
-        </p>
-      </div>
-      <div class="cl1-experience-slide s-2">
-        <h3>
-          Raised in a simulation
-        </h3>
-        <p>
-          The world the neurons exist in is created by our Biological Intelligence Operating System (biOS). It runs a simulated world and sends information directly to the neurons about their environment. As the neurons react, their impulses affect their simulated world.
-        </p>
-      </div>
-      <div class="cl1-experience-slide s-3">
-        <h3>
-          Connect directly to the brain
-        </h3>
-        <p>
-          We bring these neurons to life, and integrate them into the biOS with a mixture of hard silicon and soft tissue. You get to connect directly to these neurons. Deploy code directly to the human brain, and solve today’s most difficult challenges.
-        </p>
-      </div>
-      <div class="cl1-experience-slide s-4">
-        <h3>
-          Human neural networks
-        </h3>
-        <p>
-          The human neuron is self programming, infinitely flexible, and the result of four billion years of evolution. What digital AI models spend tremendous resources trying to emulate, we begin with.
-        </p>
-      </div>
-      <div class="cl1-experience-slide s-5">
-        <h4>
-          Programmable organic human neural networks, born on a silicon chip and living inside a digital world.
-        </h4>
-      </div>
-      <div class="cl1-experience-slide s-6">
-        <h4>
-          Deploy code today
-        </h4>
-        <div class="buttons">
-          <a href="" class="button">Buy the CL1</a>
-          <a href="" class="button">Deploy to the Cloud</a>
+
+      <div class="fixed-content" id="fixedContent">
+        <div class="cl1-experience-slide" data-section="1">
+          <h3>
+            Silicon meets neuron
+          </h3>
+          <p>
+            Human neurons are cultivated inside a nutrient rich solution, supplying them with everything they need to be healthy. They grow across a silicon chip, which sends and receives electrical impulses into the neural structure.
+          </p>
         </div>
+        <div class="cl1-experience-slide" data-section="2">
+          <h3>
+            Raised in a simulation
+          </h3>
+          <p>
+            The world the neurons exist in is created by our Biological Intelligence Operating System (biOS). It runs a simulated world and sends information directly to the neurons about their environment. As the neurons react, their impulses affect their simulated world.
+          </p>
+        </div>
+        <div class="cl1-experience-slide" data-section="3">
+          <h3>
+            Connect directly to the brain
+          </h3>
+          <p>
+            We bring these neurons to life, and integrate them into the biOS with a mixture of hard silicon and soft tissue. You get to connect directly to these neurons. Deploy code directly to the human brain, and solve today’s most difficult challenges.
+          </p>
+        </div>
+        <div class="cl1-experience-slide" data-section="4">
+          <h3>
+            Human neural networks
+          </h3>
+          <p>
+            The human neuron is self programming, infinitely flexible, and the result of four billion years of evolution. What digital AI models spend tremendous resources trying to emulate, we begin with.
+          </p>
+        </div>
+        <div class="cl1-experience-slide end-slide" data-section="5">
+          <h4>
+            Programmable organic human neural networks, born on a silicon chip and living inside a digital world.
+          </h4>
+        </div>
+        <div class="cl1-experience-slide end-slide" data-section="6">
+          <h4 class="compact">
+            The most human computer. Ever.
+          </h4>
+          <a href="/purchase.html" class="button">Buy the CL1</a>
+        </div>
+        <div class="image-container" id="imageContainer"></div>
       </div>
+
+      <div class="cl1-experience-final-bg"></div>
     </section>
 
     <section class="section-cl1-description">
@@ -125,7 +149,7 @@
             Closed-loop
           </div>
           <p>
-            High-performance closed-loop system where human neurons interact with software in real time. Robust environment keeps neurons alive for up to 6 months.
+            High-performance closed-loop system where human neurons interact with software in real time. A robust environment keeps neurons alive for up to 6 months.
           </p>
         </div>
         <div class="cl1-description-item">
@@ -133,7 +157,7 @@
             Self-contained
           </div>
           <p>
-            All recordings, applications and life support on device. No external compute required.
+            All recordings, applications and life support are on the device. No external compute required.
           </p>
         </div>
         <div class="cl1-description-item">
@@ -141,7 +165,7 @@
             Python API
           </div>
           <p>
-            Powerful python API making dynamic real-time applications simple, giving you full control.
+            Powerful python API making dynamic real-time applications simple and giving you full control.
           </p>
         </div>
         
@@ -166,7 +190,7 @@
         Animal-free testing
       </div>
       <p>
-        The CL1 is the first biological computer enabling medical and research labs to test how human neurons process information – avoiding animal testing and surpassing its capability.
+        The CL1 is the first biological computer enabling medical and research labs to test how human neurons process information – offering an ethically superior alternative to animal testing while delivering more relevant human data and insights.
       </p>
     </section>
 
@@ -178,7 +202,7 @@
             Deeper Learning
           </div>
           <p>
-            Leverage the real-time adaptability and learning of biological intelligence to better understand the brain, including how diseases and external compounds affect cognition.
+            Study brain function with unprecedented clarity through biological computing that captures neural adaptability and learning in real-time, revealing disease mechanisms and compound effects on cognition.
           </p>
           <div class="section-deeper-person"></div>
         </div>
@@ -205,9 +229,9 @@
           
           <div class="section-sustainable-description">
             <p>
-              Designed to keep neurons alive for up to 6 months with an internal life support system, the CL1 requires minimal inputs and a fraction of energy used by other technology, enabling sustainable research.
+              Designed to keep neurons alive for up to 6 months with its internal life support system, the CL1 needs minimal inputs and a fraction of energy other technologies use, enabling longer research timelines.
             </p>
-            <a href="" class="button dark">Buy the CL1</a>
+            <a href="/purchase.html" class="button dark">Buy the CL1</a>
           </div>
 
           <div class="line vert l"></div>
@@ -285,7 +309,7 @@
             Company
           </div>
           <nav class="site-footer-link-items">
-            <a href="/about.html">About</a>
+            <a href="/company.html">About</a>
             <a href="mailto:info@corticallabs.com">Email Us</a>
           </nav>
         </div>
@@ -298,22 +322,22 @@
           <a href="https://corticallabs.com/privacy.pdf">Privacy Policy</a>
         </div>
         <div class="site-footer-bottom-right">
-          <a href="">Sign In</a>
-          <a href="">Sign Up</a>
+          <a href="https://cloud.corticallabs.com">Sign In</a>
+          <a href="https://cloud.corticallabs.com">Sign Up</a>
         </div>
       </div>
     </section>
 
     <script src="js/global.js"></script>
     <script src="js/cl1.js"></script>
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-189SFYMKK6"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGWPQ93QV0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-189SFYMKK6');
-    </script> -->
+      gtag('config', 'G-ZGWPQ93QV0');
+    </script>
 
   </body>
 </html> 
