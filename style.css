@@ -1031,16 +1031,6 @@ body {
   }
 }
 
-/* --- Purchase Styles */
-
-.pipedriveWebForms {
-  text-align: center;
-}
-
-.pipedriveWebForms iframe {
-  margin: 0 auto;
-}
-
 /* --- On Chip */
 
 .section-on-chip {
@@ -1514,12 +1504,13 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 50vw;
   height: 700vh;
   pointer-events: none;
 }
 
-.cl1-experience-bg {
+/* .cl1-experience-bg {
   position: absolute;
   height: 112vh;
   width: 900px;
@@ -1537,10 +1528,36 @@ body {
   will-change: transform;
   z-index: 3;
   pointer-events: none;
+} */
+
+.cl1-experience-device-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
 }
 
-.cl1-experience-bg.hide {
-  display: none;
+.cl1-experience-device-container.show {
+  display: flex;
+}
+
+.cl1-experience-device {
+  position: relative;
+  width: 80vmin;
+  height: 80vmin;
+  background-image: url('images/cl1-large-front.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.05s ease-out;
+  will-change: transform, width, height;
+  transform: translateY(90vh);
 }
 
 .cl1-experience-slide {
@@ -1620,14 +1637,16 @@ body {
   }
 }
 
+@media only screen and (max-width: 500px){
+  .cl1-experience-slide p {
+    font-size: 16px;
+  }
+}
+
 @media only screen and (max-width: 400px){
   .cl1-experience-bg {
     height: 120vh;
     top: -40vh;
-  }
-
-  .cl1-experience-slide p {
-    font-size: 16px;
   }
 }
 
@@ -1731,6 +1750,9 @@ body {
 }
 
 @media only screen and (max-width: 800px){
+  .section-cl1-description-body {
+    padding-top: 14vw;
+  }
   .cl1-description-item-title {
     font-size: 70px;
     line-height: 70px;
@@ -1741,6 +1763,13 @@ body {
   .cl1-description-item-parts {
     flex-direction: column;
     gap: 60px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .cl1-description-item-title {
+    font-size: 50px;
+    line-height: 54px;
   }
 }
 
@@ -2333,6 +2362,11 @@ body {
 
 /* Forms */
 
+#mc_embed_signup {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 #mc_embed_shell #mc_embed_signup {
   font-size: 16px;
 }
@@ -2346,4 +2380,15 @@ body {
   height: initial;
   line-height: 20px;
   padding: 12px 40px;
+}
+
+/* --- Purchase Styles */
+
+.pipedriveWebForms {
+  text-align: center;
+}
+
+.pipedriveWebForms iframe {
+  margin: 0 auto;
+  max-width: 700px;
 }

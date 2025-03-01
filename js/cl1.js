@@ -1,5 +1,5 @@
 const cl1Experience = document.querySelector('.cl1-experience');
-const cl1ExperienceBg = document.querySelector('.cl1-experience-bg');
+const cl1ExperienceDeviceContainer = document.querySelector('.cl1-experience-device-container');
 const cl1Hero = document.querySelector('.hero-cl1');
 const cloudHeroCards = document.querySelector('.hero-cloud-cards-bottom');
 
@@ -26,10 +26,7 @@ let ticking = false;
 window.addEventListener('scroll', () => {
     const header = document.querySelector('body > .header');
     const winHeight = window.innerHeight;
-    const viewportWidth = window.innerWidth;
     const scrollPosition = window.scrollY;
-    const spArg = (viewportWidth <= 900) ? (winHeight / 1.45) : (winHeight / 1.25);
-    const scrollPercent = Math.min((scrollPosition - spArg) / spArg, 1);
     const specialSectionBottom = specialSection.offsetTop + specialSection.offsetHeight;
     const inSpecialSection = (scrollPosition >= specialSection.offsetTop) && 
                            (scrollPosition < specialSectionBottom - winHeight);
@@ -40,20 +37,15 @@ window.addEventListener('scroll', () => {
       cl1Hero.style.backgroundColor = `rgba(182, 186, 185, ${adjPercent})`;
     }
 
-    if (scrollPosition > 350 && scrollPosition <= specialSection.offsetTop) {
-      const perentage = `${Math.max(Math.min(((1 - (scrollPercent * 1.2)) * 100), 100), 20)}%`
-      cl1ExperienceBg.style.transform = `translateY(${(scrollPosition - 350) / 4}px)`;
-      cl1ExperienceBg.style.backgroundSize = `${perentage} auto`;
-    } else if (scrollPosition > 350) {
-      cl1ExperienceBg.style.transform = `translateY(${(scrollPosition - 350) /4}px)`;
-    }
-
     if (inSpecialSection) {
       header.classList.add('in-cl1');
-      cl1ExperienceBg.classList.add('hide');
+      cl1ExperienceDeviceContainer.classList.remove('show');
     } else {
       header.classList.remove('in-cl1');
-      cl1ExperienceBg.classList.remove('hide');
+    }
+
+    if (!inSpecialSection && scrollPosition < specialSection.offsetTop) {
+      cl1ExperienceDeviceContainer.classList.add('show');
     }
 
     if (!ticking) {
@@ -63,8 +55,9 @@ window.addEventListener('scroll', () => {
       });
       ticking = true;
     }
-});
 
+    handleScroll()
+});
 
 
 for (let i = 0; i < config.frameCount; i++) {
@@ -106,8 +99,7 @@ function updateContent() {
     const specialSectionScrollable = specialSectionHeight - viewportHeight;
     const specialSectionScrollableFrames = (viewportHeight * 5) - viewportHeight;
     const specialProgress = Math.min((scrollTop - specialSectionTop) / specialSectionScrollableFrames, 1);
-    //const specialProgress = Math.min((scrollTop - specialSectionTop) / specialSectionScrollable, 1);
-    
+
     const frameIndex = Math.min(Math.floor(specialProgress * config.frameCount), config.frameCount - 1);
     frames.forEach((frame, i) => frame.style.display = i === frameIndex ? 'block' : 'none');
     
@@ -134,21 +126,69 @@ function updateContent() {
     fixedContent.classList.add('at-end');
   } else {
     fixedContent.classList.remove('at-end');
-    
+
     if (!inSpecialSection) {
       slides.forEach(section => {
         section.classList.remove('active');
       });
     }
   }
-  
-  const fadeCalc = specialSectionBottom - (viewportHeight * 2);
-  if (scrollTop > fadeCalc) {
-    // const fadeOutProgress = Math.max((((specialSectionBottom - viewportHeight) / 0.67) - scrollTop) / viewportHeight * 1.5, 0);
-    // imageContainer.style.opacity = fadeOutProgress > 0 ? fadeOutProgress.toFixed(2) : '0';
-  } else {
-    fixedContent.removeAttribute('style');
-  }
 }
 
 updateContent();
+
+document.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(function() {
+    console.log(window.scrollY);
+    if (window.scrollY < specialSection.offsetTop) {
+      cl1ExperienceDeviceContainer.classList.add('show');
+    }
+  });
+});
+
+
+const heroElement = document.querySelector('.cl1-experience-device');
+const viewportHeight = window.innerHeight;
+
+function handleScroll() {
+    const viewportWidth = window.innerWidth;
+    const scrollPosition = window.scrollY;
+    const scrollProgress = Math.min(scrollPosition / viewportHeight, 1);
+    
+    const startSize = 80;
+    const frameMaxWidth = 1600;
+    const frameScale = (viewportWidth < frameMaxWidth) ? viewportWidth / frameMaxWidth : 1;
+    const frameToDeviceScale = 0.22;
+    const endSizePx = (frameMaxWidth * frameScale) * frameToDeviceScale;
+    
+    if (scrollProgress < 1) {
+        const endSizeVmin = (endSizePx / Math.min(window.innerWidth, window.innerHeight)) * 100;
+        const currentSize = startSize - ((startSize - endSizeVmin) * scrollProgress);
+        
+        let initialOffset = 90;
+        if (viewportWidth < 800) {
+          initialOffset = 75;
+        }
+        if (viewportWidth < 500) {
+          initialOffset = 70;
+        }
+        if (viewportWidth < 400) {
+          initialOffset = 60;
+        }
+        const currentOffset = initialOffset * (1 - scrollProgress);
+        
+        heroElement.style.width = `${Math.min(currentSize, startSize)}vmin`;
+        heroElement.style.height = `${Math.min(currentSize, startSize)}vmin`;
+        heroElement.style.transform = `translateY(${Math.min(currentOffset, initialOffset)}vh)`;
+    } else {
+        heroElement.style.width = `${endSizePx}px`;
+        heroElement.style.height = `${endSizePx}px`;
+        heroElement.style.transform = 'translateY(0)';
+    }
+}
+
+handleScroll();
+
+window.addEventListener('resize', () => {
+    handleScroll();
+});
